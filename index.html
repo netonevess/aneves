@@ -29,9 +29,9 @@
             transition: all 0.3s ease;
         }
 
-        a:visited {
+        a, a:visited {
             color: white;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         .container {
@@ -219,16 +219,16 @@
             <h2>Contact Information</h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+55279...<a href="#">view more</a></span>
-                </div>
-                <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Vila Velha/ES - Brazil</span>
                 </div>
                 <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+55279...<a href="#" class="view-more">view more</a></span>
+                </div>
+                <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>al...<a href="#">view more</a>m</span>
+                    <span>al...<a href="#" class="view-more">view more</a></span>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
@@ -353,7 +353,14 @@
                 observer.observe(section);
             });
         });
+        const viewMore = document.querySelectorAll('a.view-more');
+        viewMore.forEach(function(element){
+            element.addEventListener('click', () => {
+                if(window.confirm("Continue to Linkedin")) {
+                    window.location.href = 'https://www.linkedin.com/in/netoneves/';
+                }
+            });
+        })
     </script>
 </body>
-
 </html>
